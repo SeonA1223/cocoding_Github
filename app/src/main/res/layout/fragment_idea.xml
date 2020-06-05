@@ -69,7 +69,7 @@
                 android:id="@+id/textView"
                 android:layout_width="296sp"
                 android:layout_height="41sp"
-                android:text="branch사용" />
+                android:text="branch사용123" />
 
         </LinearLayout>
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_navigation_item_idea"
+        android:icon="@drawable/ic_teamateone_uppertab_icon"
+        android:title="@string/botton_navigation_bar_idea" />
+
+    <item
+        android:id="@+id/bottom_navigation_item_flow"
+        android:icon="@drawable/ic_teamatetwo_uppertab_icon"
+        android:title="@string/botton_navigation_bar_flow" />
+
+    <item
+        android:id="@+id/bottom_navigation_item_object"
+        android:icon="@drawable/ic_store_main_icon"
+        android:title="@string/botton_navigation_bar_object" />
+
+    <item
+        android:id="@+id/bottom_navigation_item_code"
+        android:icon="@drawable/ic_mypage_main_icon"
+        android:title="@string/botton_navigation_bar_code" />
+
+
+</menu>

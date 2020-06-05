@@ -69,7 +69,7 @@
                 android:id="@+id/textView"
                 android:layout_width="296sp"
                 android:layout_height="41sp"
-                android:text="프로젝트 주제" />
+                android:text="홀롤롤" />
 
         </LinearLayout>
 

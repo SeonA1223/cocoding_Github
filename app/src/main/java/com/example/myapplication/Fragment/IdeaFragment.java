@@ -1,5 +1,6 @@
 package com.example.myapplication.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,7 +8,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import com.example.myapplication.Example;
 import com.example.myapplication.R;
 
 /**
@@ -15,7 +18,7 @@ import com.example.myapplication.R;
  * Use the {@link IdeaFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class IdeaFragment extends Fragment {
+public class IdeaFragment extends Fragment implements View.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,37 +33,27 @@ public class IdeaFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment IdeaFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static IdeaFragment newInstance(String param1, String param2) {
-        IdeaFragment fragment = new IdeaFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        LinearLayout linearLayout = (LinearLayout) getView().findViewById(R.id.abcd);
         return inflater.inflate(R.layout.fragment_idea, container, false);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (getView().getId()){
+            case R.id.abcd:
+                Intent intent = new Intent(getActivity(), Example.class);
+                startActivity(intent);
+        }
     }
 }

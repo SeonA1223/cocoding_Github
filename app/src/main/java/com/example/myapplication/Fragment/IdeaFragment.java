@@ -10,15 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.example.myapplication.Example;
+import com.example.myapplication.Idea.Idea_Topic;
 import com.example.myapplication.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link IdeaFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class IdeaFragment extends Fragment implements View.OnClickListener {
+
+public class IdeaFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,16 +40,18 @@ public class IdeaFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        LinearLayout linearLayout = (LinearLayout) getView().findViewById(R.id.abcd);
-        return inflater.inflate(R.layout.fragment_idea, container, false);
+        View view = inflater.inflate(R.layout.fragment_idea, container, false);
+        LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.abcd);
+
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Idea_Topic.class);
+                startActivity(intent);
+            }
+        });
+        return view;
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (getView().getId()){
-            case R.id.abcd:
-                Intent intent = new Intent(getActivity(), Example.class);
-                startActivity(intent);
-        }
-    }
+
 }

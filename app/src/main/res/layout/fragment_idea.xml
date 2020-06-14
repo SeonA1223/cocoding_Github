@@ -10,54 +10,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar2"
-            android:layout_width="360dp"
-            android:layout_height="56dp"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme">
-
-            <Button
-                android:id="@+id/button1"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:background="@drawable/ic_back_main_icon" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:background="@drawable/ic_teamateone_uppertab_icon" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:background="@drawable/ic_teamatetwo_uppertab_icon" />
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:background="@drawable/ic_teamatetwo_uppertab_icon" />
-
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:layout_gravity="end"
-                android:background="@drawable/ic_teamateplus_uppertab_icon" />
-
-        </androidx.appcompat.widget.Toolbar>
-
         <LinearLayout
             android:layout_width="328dp"
             android:id="@+id/abcd"

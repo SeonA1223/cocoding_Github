@@ -6,9 +6,28 @@
     tools:context=".Flow.MakeFlowFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="흐름도만들기" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/flow_figure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="순서도도형"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="button2"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="button3"/>
+
+    </LinearLayout>
 
 </FrameLayout>

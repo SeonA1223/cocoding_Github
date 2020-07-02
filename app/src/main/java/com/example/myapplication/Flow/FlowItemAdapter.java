@@ -1,6 +1,7 @@
 package com.example.myapplication.Flow;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,8 @@ public class FlowItemAdapter extends RecyclerView.Adapter<FlowItemAdapter.ViewHo
 
     public OnItemClickListener mOnItemClickListener = null;
 
+
+
     public interface OnItemClickListener {
         void onItemClick(View view, FlowItem flowItem);
     }
@@ -34,6 +37,7 @@ public class FlowItemAdapter extends RecyclerView.Adapter<FlowItemAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+
         private ImageView imageView;
 
         public ViewHolder(@NonNull View itemView) {
@@ -54,11 +58,19 @@ public class FlowItemAdapter extends RecyclerView.Adapter<FlowItemAdapter.ViewHo
         FlowItem flowItem = flowItemArrayList.get(i);
         viewHolder.imageView.setImageResource(flowItem.getImage());
 
+        /*서버 or internet에서 값 가져올 경우
+        Glide.with(ViewHolder.view.getContext()).load(item.getUrl()).into(viewHolder.(URL id);
+        * */
+
     }
 
     @Override
     public int getItemCount() {
         return flowItemArrayList.size();
+    }
+
+    public void setItems(ArrayList<FlowItem> flowItemArrayList){
+        this.flowItemArrayList = flowItemArrayList;
     }
 
 

@@ -3,15 +3,20 @@ package com.example.myapplication.Fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.myapplication.Flow.FlowItem;
+import com.example.myapplication.Flow.FlowItemAdapter;
 import com.example.myapplication.Flow.FlowPagerAdapter;
 import com.example.myapplication.R;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
 
 public class FlowFragment extends Fragment {
 
@@ -31,6 +36,8 @@ public class FlowFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        // flow 화면에서 상단에 두 탭을 만듦. 기본 세팅은 MakeFlowFragment 선택(setSelected true)
+
         View view = inflater.inflate(R.layout.fragment_flow, container, false);
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.flow_tablayout);
         tabLayout.addTab(tabLayout.newTab().setText("흐름도 만들기"), 0, true);
@@ -59,6 +66,8 @@ public class FlowFragment extends Fragment {
 
             }
         });
+
+
 
         return view;
 

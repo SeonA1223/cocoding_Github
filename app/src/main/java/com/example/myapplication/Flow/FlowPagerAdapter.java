@@ -5,8 +5,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 public class FlowPagerAdapter extends FragmentStatePagerAdapter {
-
+//makeFlowFragment와 signalFragment 연결하는 Adapter
     private int mPageCount;
+
 
     public FlowPagerAdapter(FragmentManager fm, int mPageCount) {
         super(fm);

@@ -1,22 +1,17 @@
 package com.example.myapplication.Flow;
 
+import android.graphics.Bitmap;
+import android.widget.ImageView;
+
 public class FlowItem {
 
-    String name;
     int image;
+    //server URL인 경우 image 자료형 String으로 바꿔줄 것, 지금은 서버 없이 실험용
 
-    public FlowItem(String name, int image){
+    public FlowItem(int image){
         super();
-        this.name = name;
+
         this.image = image;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getImage() {

@@ -18,6 +18,18 @@ public class FlowItemData {
         flowItems.add(shape2);
         flowItems.add(shape3);
 
+        flowItems.add(shape1);
+        flowItems.add(shape2);
+        flowItems.add(shape3);
+
+        flowItems.add(shape1);
+        flowItems.add(shape2);
+        flowItems.add(shape3);
+
+        flowItems.add(shape1);
+        flowItems.add(shape2);
+        flowItems.add(shape3);
+
         return flowItems;
     }
 }

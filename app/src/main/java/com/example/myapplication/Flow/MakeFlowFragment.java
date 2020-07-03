@@ -14,16 +14,15 @@ import com.example.myapplication.R;
 
 
 public class MakeFlowFragment extends Fragment {
-//흐름도 만들기 페이지
+    //흐름도 만들기 페이지
     Button flow_shape;
     Fragment flowItemRecyclerview;
+    int mNumber = 0;
 
 
     public MakeFlowFragment() {
         // Required empty public constructor
     }
-
-
 
 
     @Override
@@ -37,17 +36,21 @@ public class MakeFlowFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_flow_make_flow, container, false);
 
-        flow_shape = (Button)view.findViewById(R.id.flow_figure);
+        flow_shape = (Button) view.findViewById(R.id.flow_figure);
 
+        flowItemRecyclerview = new FlowItemRecyclerview();
 
 
         flow_shape.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                flowItemRecyclerview = new FlowItemRecyclerview();
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_flow_make_flow, flowItemRecyclerview).commit();
-
+                if(mNumber % 2 == 0) {
+                    transaction.replace(R.id.fragment_flow_make_flow, flowItemRecyclerview).commit();
+                }else{
+                    transaction.remove(flowItemRecyclerview).commit();
+                }
+                mNumber++;
             }
         });
         return view;

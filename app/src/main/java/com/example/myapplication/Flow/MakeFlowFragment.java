@@ -37,9 +37,6 @@ public class MakeFlowFragment extends Fragment {
     }
 
 
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,29 +56,32 @@ public class MakeFlowFragment extends Fragment {
             public void onClick(View v) {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 //transaction.add(R.id.fragment_flow_make_flow, flowItemRecyclerview, "recycle")
-               // .addToBackStack(null).commit();
-                if(mNumber % 2 == 0 ) {
+
+                if( mNumber % 2 == 0 ||flowItemRecyclerview == null) {
                     Log.e("a", "come?");
-                    transaction.replace(R.id.fragment_flow_make_flow, flowItemRecyclerview).commit();
-                }else if(mNumber % 2 == 1){
+                    transaction.replace(R.id.fragment_flow_make_flow, flowItemRecyclerview).addToBackStack(null).commitAllowingStateLoss();
+                }else{
                     Log.e("b", "come?");
-                    transaction.remove(flowItemRecyclerview).commit();
+                    transaction.remove(flowItemRecyclerview).commitAllowingStateLoss();
                 }
                 mNumber++;
             }
 
         });
 
-//        linearLayout.setOnClickListener(new View.OnClickListener(){
-//
-//            @Override
-//            public void onClick(View v) {
-//                Log.e("problem", "please I want to know");
-//                FragmentManager fragmentManager = getChildFragmentManager();
-//                if(flowItemRecyclerview != null)
-//                    fragmentManager.popBackStack();
-//                }
-//        });
+        linearLayout.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Log.e("problem", "please I want to know");
+                FragmentManager fragmentManager = getChildFragmentManager();
+                if(flowItemRecyclerview != null) {
+                    fragmentManager.popBackStack();
+                    mNumber++;
+                }
+
+            }
+        });
 
 
 

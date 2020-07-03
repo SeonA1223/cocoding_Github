@@ -3,12 +3,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.ObjectFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<!--        object folder list -->
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="314dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <Button
+                    android:id="@+id/objectList1"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/lottemart"
+                    android:textColor="#ffffff"
+                    android:text="object list 1" />
+
+                <Button
+                    android:id="@+id/objectList2"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/lottemart"
+                    android:textColor="#ffffff"
+                    android:text="object list 2" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/objectList3"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/lottemart"
+                    android:textColor="#ffffff"
+                    android:text="object list 3" />
+            </TableRow>
+
+        </TableLayout>
+
+    <!--        object list -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="314dp"
+        android:orientation="vertical"
+        android:background="#bdbdbd">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <Button
+                android:id="@+id/object1"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="@font/lottemart"
+                android:textColor="#ffffff"
+                android:text="object 1" />
+
+            <Button
+                android:id="@+id/object2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="@font/lottemart"
+                android:textColor="#ffffff"
+                android:text="object 2" />
+        </TableRow>
+
+    </TableLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|right"
+        android:src="@drawable/plusbutton_main_icon"/>
 
 </FrameLayout>

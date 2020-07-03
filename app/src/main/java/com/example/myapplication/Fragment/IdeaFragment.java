@@ -10,20 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.myapplication.Idea.Idea_Algorithm;
 import com.example.myapplication.Idea.Idea_Topic;
+import com.example.myapplication.Idea.Idea_Topic_Contents;
 import com.example.myapplication.R;
 
 
 public class IdeaFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public IdeaFragment() {
         // Required empty public constructor
@@ -41,7 +35,9 @@ public class IdeaFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_idea, container, false);
-        LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.abcd);
+        LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.idea_topic);
+        LinearLayout linearLayout1 = (LinearLayout) view.findViewById(R.id.idea_topic_contents);
+        LinearLayout linearLayout2 = (LinearLayout) view.findViewById(R.id.idea_algorithm);
 
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,8 +46,29 @@ public class IdeaFragment extends Fragment {
                 startActivity(intent);
             }
         });
+//        return view;
+
+        linearLayout1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Idea_Topic_Contents.class);
+                startActivity(intent);
+            }
+        });
+//        return view;
+
+        linearLayout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Idea_Algorithm.class);
+                startActivity(intent);
+            }
+        });
         return view;
+
     }
+
+
 
 
 }

@@ -2,11 +2,9 @@ package com.example.myapplication;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -21,7 +19,7 @@ public class SecondActivity extends AppCompatActivity {
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private CodeFragment codeFragment = new CodeFragment();
     private FlowFragment flowFragment = new FlowFragment();
-    private IdeaFragment IdeaFragment = new IdeaFragment();
+    private com.example.myapplication.Fragment.IdeaFragment IdeaFragment = new IdeaFragment();
     private ObjectFragment objectFragment = new ObjectFragment();
 
     BottomNavigationView bottomNavigationView;
@@ -63,5 +61,7 @@ public class SecondActivity extends AppCompatActivity {
             return false;
         }
     }
+
+
 
 }

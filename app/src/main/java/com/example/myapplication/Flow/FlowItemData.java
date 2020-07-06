@@ -1,18 +1,19 @@
 package com.example.myapplication.Flow;
 
 import com.example.myapplication.R;
+import com.example.myapplication.Recyclerview.RecyclerviewItem;
 
 import java.util.ArrayList;
 
 public class FlowItemData {
 
-    ArrayList<FlowItem> flowItems = new ArrayList<>();
+    ArrayList<RecyclerviewItem> flowItems = new ArrayList<>();
 
-    public ArrayList<FlowItem> getFlowItems(){
+    public ArrayList<RecyclerviewItem> getFlowItems(){
 
-        FlowItem shape1 = new FlowItem(R.drawable.shape1);
-        FlowItem shape2 = new FlowItem(R.drawable.shape2);
-        FlowItem shape3 = new FlowItem(R.drawable.shape3);
+        RecyclerviewItem shape1 = new RecyclerviewItem(R.drawable.shape1);
+        RecyclerviewItem shape2 = new RecyclerviewItem(R.drawable.shape2);
+        RecyclerviewItem shape3 = new RecyclerviewItem(R.drawable.shape3);
 
         flowItems.add(shape1);
         flowItems.add(shape2);

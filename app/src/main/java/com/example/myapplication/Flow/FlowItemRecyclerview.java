@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -13,12 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.myapplication.R;
-
-import java.util.ArrayList;
+import com.example.myapplication.Recyclerview.Recyclerview_ItemAdapter;
 
 public class FlowItemRecyclerview extends Fragment {
 
-    private FlowItemAdapter flowItemAdapter;
+    private Recyclerview_ItemAdapter recyclerviewItemAdapter;
     private RecyclerView recyclerView;
     private FlowItemData flowItemData;
 
@@ -42,10 +40,10 @@ public class FlowItemRecyclerview extends Fragment {
         recyclerView = (RecyclerView)view.findViewById(R.id.flow_recyclerview);
 
        flowItemData = new FlowItemData();
-       flowItemAdapter = new FlowItemAdapter(getActivity(), flowItemData.getFlowItems());
+       recyclerviewItemAdapter = new Recyclerview_ItemAdapter(getActivity(), flowItemData.getFlowItems());
 
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-        recyclerView.setAdapter(flowItemAdapter);
+        recyclerView.setAdapter(recyclerviewItemAdapter);
 
         Log.e("frag", "please success");
         return view;

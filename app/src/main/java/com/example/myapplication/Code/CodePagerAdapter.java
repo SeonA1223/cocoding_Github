@@ -24,14 +24,26 @@ public class CodePagerAdapter extends FragmentStatePagerAdapter {
                 CodeBlockRecyclerview codeBlockRecyclerview = new CodeBlockRecyclerview();
                 return codeBlockRecyclerview;
             case 1:
+                CodeBlockRecyclerview1 codeBlockRecyclerview1 = new CodeBlockRecyclerview1();
+                return codeBlockRecyclerview1;
+            case 2:
                 CodeBlockRecyclerview2 codeBlockRecyclerview2 = new CodeBlockRecyclerview2();
                 return codeBlockRecyclerview2;
-            case 2:
-                CodeBlockRecyclerview2 codeBlockRecyclerview3 = new CodeBlockRecyclerview2();
-                return codeBlockRecyclerview3;
             case 3:
-                CodeBlockRecyclerview2 codeBlockRecyclerview4 = new CodeBlockRecyclerview2();
+                CodeBlockRecyclerview3 codeBlockRecyclerview3 = new CodeBlockRecyclerview3();
+                return codeBlockRecyclerview3;
+            case 4:
+                CodeBlockRecyclerview4 codeBlockRecyclerview4 = new CodeBlockRecyclerview4();
                 return codeBlockRecyclerview4;
+            case 5:
+                CodeBlockRecyclerview5 codeBlockRecyclerview5 = new CodeBlockRecyclerview5();
+                return codeBlockRecyclerview5;
+            case 6:
+                CodeBlockRecyclerview6 codeBlockRecyclerview6 = new CodeBlockRecyclerview6();
+                return codeBlockRecyclerview6;
+            case 7:
+                CodeBlockRecyclerview7 codeBlockRecyclerview7 = new CodeBlockRecyclerview7();
+                return codeBlockRecyclerview7;
             default:
                 return null;
         }

@@ -33,6 +33,11 @@ public class CodeBlockPage extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText("동작"), 1);
         tabLayout.addTab(tabLayout.newTab().setText("형태"), 2);
         tabLayout.addTab(tabLayout.newTab().setText("이벤트"), 3);
+        tabLayout.addTab(tabLayout.newTab().setText("제어"), 4);
+        tabLayout.addTab(tabLayout.newTab().setText("감지"), 5);
+        tabLayout.addTab(tabLayout.newTab().setText("연산"), 6);
+        tabLayout.addTab(tabLayout.newTab().setText("변수"), 7);
+
 
         final ViewPager viewPager = (ViewPager) view.findViewById(R.id.code_viewpager);
         CodePagerAdapter codePagerAdapter = new CodePagerAdapter(getChildFragmentManager(), tabLayout.getTabCount());

@@ -15,11 +15,10 @@ import com.example.myapplication.R;
 
 
 public class CodeFragment extends Fragment {
-    //흐름도 만들기 페이지
+    //구현 하기 페이지
     Button code_shape;
-    Fragment codeBlockRecyclerview2;
     Fragment codeBlockPage;
-    int mNumber = 0;
+    int pNumber = 0;
 
 
     public CodeFragment() {
@@ -40,7 +39,6 @@ public class CodeFragment extends Fragment {
 
         code_shape = (Button) view.findViewById(R.id.code_block);
 
-        codeBlockRecyclerview2 = new CodeBlockRecyclerview2();
         codeBlockPage = new CodeBlockPage();
 
 
@@ -48,12 +46,12 @@ public class CodeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                if (mNumber % 2 == 0) {
+                if (pNumber % 2 == 0) {
                     transaction.replace(R.id.fragment_code, codeBlockPage).commit();
                 } else {
                     transaction.remove(codeBlockPage).commit();
                 }
-                mNumber++;
+                pNumber++;
             }
         });
         return view;

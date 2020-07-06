@@ -8,7 +8,6 @@ import com.example.myapplication.R;
 
 public class Object_List extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

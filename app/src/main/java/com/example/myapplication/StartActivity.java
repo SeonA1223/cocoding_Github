@@ -8,19 +8,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.myapplication.Flow.FlowItemRecyclerview;
 import com.example.myapplication.Fragment.CodeFragment;
 import com.example.myapplication.Fragment.FlowFragment;
 import com.example.myapplication.Fragment.IdeaFragment;
 import com.example.myapplication.Fragment.ObjectFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class SecondActivity extends AppCompatActivity {
+public class StartActivity extends AppCompatActivity {
 
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private CodeFragment codeFragment = new CodeFragment();
     private FlowFragment flowFragment = new FlowFragment();
     private com.example.myapplication.Fragment.IdeaFragment IdeaFragment = new IdeaFragment();
     private ObjectFragment objectFragment = new ObjectFragment();
+  //  private FlowItemRecyclerview flowItemRecyclerview = new FlowItemRecyclerview();
 
     BottomNavigationView bottomNavigationView;
 

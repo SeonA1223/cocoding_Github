@@ -16,8 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:tabGravity="fill"
-        app:tabTextColor="#000000"
-        app:tabMode="scrollable"/>
+        app:tabTextColor="#000000" />
 
 
     <androidx.viewpager.widget.ViewPager
@@ -27,6 +26,9 @@
         android:layout_below="@+id/code_tablayout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" >
+
+
+    </androidx.viewpager.widget.ViewPager>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

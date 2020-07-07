@@ -7,14 +7,13 @@ import java.util.ArrayList;
 
 public class FlowItemData {
 
+    RecyclerviewItem shape1 = new RecyclerviewItem(R.drawable.shape1);
+    RecyclerviewItem shape2 = new RecyclerviewItem(R.drawable.shape2);
+    RecyclerviewItem shape3 = new RecyclerviewItem(R.drawable.shape3);
+
     ArrayList<RecyclerviewItem> flowItems = new ArrayList<>();
 
-    public ArrayList<RecyclerviewItem> getFlowItems(){
-
-        RecyclerviewItem shape1 = new RecyclerviewItem(R.drawable.shape1);
-        RecyclerviewItem shape2 = new RecyclerviewItem(R.drawable.shape2);
-        RecyclerviewItem shape3 = new RecyclerviewItem(R.drawable.shape3);
-
+    public FlowItemData() {
         flowItems.add(shape1);
         flowItems.add(shape2);
         flowItems.add(shape3);
@@ -30,11 +29,16 @@ public class FlowItemData {
         flowItems.add(shape1);
         flowItems.add(shape2);
         flowItems.add(shape3);
+
+    }
+
+    public ArrayList<RecyclerviewItem> getFlowItems() {
+
 
         return flowItems;
     }
 
-    public RecyclerviewItem getItem(int position){
+    public RecyclerviewItem getItem(int position) {
         return flowItems.get(position);
     }
 }

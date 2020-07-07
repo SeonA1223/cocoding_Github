@@ -32,6 +32,13 @@ public class Recyclerview_ItemAdapter extends RecyclerView.Adapter<Recyclerview_
         this.ArrayList = flowItemArrayList;
     }
 
+
+//    public void updateData(ArrayList<RecyclerviewItem> arrayList){
+//        arrayList.clear();
+//        arrayList.addAll(arrayList);
+//        notifyDataSetChanged();
+//    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView imageView;
@@ -65,9 +72,9 @@ public class Recyclerview_ItemAdapter extends RecyclerView.Adapter<Recyclerview_
         return ArrayList.size();
     }
 
-    public void setItems(ArrayList<RecyclerviewItem> ArrayList){
-        this.ArrayList = ArrayList;
-    }
+//    public void setItems(ArrayList<RecyclerviewItem> ArrayList){
+//        this.ArrayList = ArrayList;
+//    }
 
 
 }

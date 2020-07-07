@@ -98,6 +98,8 @@ public class FlowItemRecyclerview extends Fragment {
                 return true;
             }
 
+            float oldXvalue;
+            float oldYvalue;
 
             @Override
             public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
@@ -108,6 +110,52 @@ public class FlowItemRecyclerview extends Fragment {
 //                imageView.setX(x - imageView.getWidth() / 2);
 //                imageView.setY(y - imageView.getHeight() / 2);
 
+                int width = ((ViewGroup) rv.getParent()).getWidth() - rv.getWidth();
+                int height = ((ViewGroup) rv.getParent()).getHeight() - rv.getHeight();
+
+                if (e.getAction() == MotionEvent.ACTION_DOWN) {
+                    oldXvalue = e.getX();
+                    oldYvalue = e.getY();
+                    //  Log.i("Tag1", "Action Down X" + event.getX() + "," + event.getY());
+                    Log.i("Tag1", "Action Down rX " + e.getRawX() + "," + e.getRawY());
+                } else if (e.getAction() == MotionEvent.ACTION_MOVE) {
+                    rv.setX(e.getRawX() - oldXvalue);
+                    rv.setY(e.getRawY() - (oldYvalue + rv.getHeight()));
+                    //  Log.i("Tag2", "Action Down " + me.getRawX() + "," + me.getRawY());
+                } else if (e.getAction() == MotionEvent.ACTION_UP) {
+
+                    if (rv.getX() > width && rv.getY() > height) {
+                        rv.setX(width);
+                        rv.setY(height);
+                    } else if (rv.getX() < 0 && rv.getY() > height) {
+                        rv.setX(0);
+                        rv.setY(height);
+                    } else if (rv.getX() > width && rv.getY() < 0) {
+                        rv.setX(width);
+                        rv.setY(0);
+                    } else if (rv.getX() < 0 && rv.getY() < 0) {
+                        rv.setX(0);
+                        rv.setY(0);
+                    } else if (rv.getX() < 0 || rv.getX() > width) {
+                        if (rv.getX() < 0) {
+                            rv.setX(0);
+                            rv.setY(e.getRawY() - oldYvalue - rv.getHeight());
+                        } else {
+                            rv.setX(width);
+                            rv.setY(e.getRawY() - oldYvalue - rv.getHeight());
+                        }
+                    } else if (rv.getY() < 0 || rv.getY() > height) {
+                        if (rv.getY() < 0) {
+                            rv.setX(e.getRawX() - oldXvalue);
+                            rv.setY(0);
+                        } else {
+                            rv.setX(e.getRawX() - oldXvalue);
+                            rv.setY(height);
+                        }
+                    }
+
+                    return;
+                }
             }
 
             @Override
@@ -121,3 +169,4 @@ public class FlowItemRecyclerview extends Fragment {
         return view;
     }
 }
+

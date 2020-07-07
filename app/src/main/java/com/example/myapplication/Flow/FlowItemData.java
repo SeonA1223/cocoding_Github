@@ -29,4 +29,8 @@ public class FlowItemData {
 
         return flowItems;
     }
+
+    public FlowItem getItem(int position){
+        return flowItems.get(position);
+    }
 }

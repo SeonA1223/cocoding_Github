@@ -39,8 +39,8 @@ public class FlowItemRecyclerview extends Fragment {
         View view = inflater.inflate(R.layout.fragment_flow_item_recyclerview, container, false);;
         recyclerView = (RecyclerView)view.findViewById(R.id.flow_recyclerview);
 
-       flowItemData = new FlowItemData();
-       recyclerviewItemAdapter = new Recyclerview_ItemAdapter(getActivity(), flowItemData.getFlowItems());
+        flowItemData = new FlowItemData();
+        recyclerviewItemAdapter = new Recyclerview_ItemAdapter(getActivity(), flowItemData.getFlowItems());
 
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         recyclerView.setAdapter(recyclerviewItemAdapter);

@@ -1,24 +1,18 @@
-package com.example.myapplication.Fragment;
+package com.example.myapplication.Code;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.myapplication.Flow.FlowPagerAdapter;
 import com.example.myapplication.R;
 import com.google.android.material.tabs.TabLayout;
 
-public class FlowFragment extends Fragment {
-
-
-    public FlowFragment() {
-        // Required empty public constructor
-    }
+public class CodeBlockPage extends Fragment {
 
 
     @Override
@@ -33,14 +27,21 @@ public class FlowFragment extends Fragment {
         // Inflate the layout for this fragment
         // flow 화면에서 상단에 두 탭을 만듦. 기본 세팅은 MakeFlowFragment 선택(setSelected true)
 
-        View view = inflater.inflate(R.layout.fragment_flow, container, false);
-        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.flow_tablayout);
-        tabLayout.addTab(tabLayout.newTab().setText("흐름도 만들기"), 0, true);
-        tabLayout.addTab(tabLayout.newTab().setText("신호"), 1);
+        View view = inflater.inflate(R.layout.fragment_code_block_page, container, false);
+        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.code_tablayout);
+        tabLayout.addTab(tabLayout.newTab().setText("객체"), 0, true);
+        tabLayout.addTab(tabLayout.newTab().setText("동작"), 1);
+        tabLayout.addTab(tabLayout.newTab().setText("형태"), 2);
+        tabLayout.addTab(tabLayout.newTab().setText("이벤트"), 3);
+        tabLayout.addTab(tabLayout.newTab().setText("제어"), 4);
+        tabLayout.addTab(tabLayout.newTab().setText("감지"), 5);
+        tabLayout.addTab(tabLayout.newTab().setText("연산"), 6);
+        tabLayout.addTab(tabLayout.newTab().setText("변수"), 7);
 
-        final ViewPager viewPager = (ViewPager) view.findViewById(R.id.flow_viewpager);
-        FlowPagerAdapter flowPagerAdapter = new FlowPagerAdapter(getChildFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(flowPagerAdapter);
+
+        final ViewPager viewPager = (ViewPager) view.findViewById(R.id.code_viewpager);
+        CodePagerAdapter codePagerAdapter = new CodePagerAdapter(getChildFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(codePagerAdapter);
 
         viewPager.addOnPageChangeListener(
                 new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -67,4 +68,5 @@ public class FlowFragment extends Fragment {
         return view;
 
     }
+
 }

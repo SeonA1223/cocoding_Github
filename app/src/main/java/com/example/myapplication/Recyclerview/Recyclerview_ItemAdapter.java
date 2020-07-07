@@ -1,8 +1,6 @@
-package com.example.myapplication.Flow;
+package com.example.myapplication.Recyclerview;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,26 +13,31 @@ import com.example.myapplication.R;
 
 import java.util.ArrayList;
 
-public class FlowItemAdapter extends RecyclerView.Adapter<FlowItemAdapter.ViewHolder> {
+public class Recyclerview_ItemAdapter extends RecyclerView.Adapter<Recyclerview_ItemAdapter.ViewHolder> {
     private Context context;
-    private ArrayList<FlowItem> flowItemArrayList;
+    private ArrayList<RecyclerviewItem> ArrayList;
 
     public OnItemClickListener mOnItemClickListener = null;
 
-
-
     public interface OnItemClickListener {
-        void onItemClick(View view, FlowItem flowItem);
+        void onItemClick(View view, RecyclerviewItem flowItem);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         mOnItemClickListener = listener;
     }
 
-    public FlowItemAdapter(Context context, ArrayList<FlowItem> flowItemArrayList) {
+    public Recyclerview_ItemAdapter(Context context, ArrayList<RecyclerviewItem> flowItemArrayList) {
         this.context = context;
-        this.flowItemArrayList = flowItemArrayList;
+        this.ArrayList = flowItemArrayList;
     }
+
+
+//    public void updateData(ArrayList<RecyclerviewItem> arrayList){
+//        arrayList.clear();
+//        arrayList.addAll(arrayList);
+//        notifyDataSetChanged();
+//    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -48,14 +51,14 @@ public class FlowItemAdapter extends RecyclerView.Adapter<FlowItemAdapter.ViewHo
 
     @NonNull
     @Override
-    public FlowItemAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public Recyclerview_ItemAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(context).inflate(R.layout.flow_item, viewGroup, false);
-        return new FlowItemAdapter.ViewHolder(view);
+        return new Recyclerview_ItemAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FlowItemAdapter.ViewHolder viewHolder, int i) {
-        FlowItem flowItem = flowItemArrayList.get(i);
+    public void onBindViewHolder(@NonNull Recyclerview_ItemAdapter.ViewHolder viewHolder, int i) {
+        RecyclerviewItem flowItem = ArrayList.get(i);
         viewHolder.imageView.setImageResource(flowItem.getImage());
 
         /*서버 or internet에서 값 가져올 경우
@@ -66,12 +69,12 @@ public class FlowItemAdapter extends RecyclerView.Adapter<FlowItemAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return flowItemArrayList.size();
+        return ArrayList.size();
     }
 
-    public void setItems(ArrayList<FlowItem> flowItemArrayList){
-        this.flowItemArrayList = flowItemArrayList;
-    }
+//    public void setItems(ArrayList<RecyclerviewItem> ArrayList){
+//        this.ArrayList = ArrayList;
+//    }
 
 
 }

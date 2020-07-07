@@ -33,4 +33,5 @@ public class FlowItemData {
 
         return flowItems;
     }
+    public RecyclerviewItem getItem(int position) { return flowItems.get(position);}
 }

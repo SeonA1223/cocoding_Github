@@ -13,7 +13,7 @@
 
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/showThis"
+    android:id="@+id/object_folder_set"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -21,9 +21,8 @@
         android:id="@+id/listImage"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:background="@android:color/darker_gray"
-        android:gravity="center"
-        android:src="@drawable/add_folder"/>
+        android:background="@android:color/white"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/listName"

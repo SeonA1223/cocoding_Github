@@ -1,50 +1,34 @@
 package com.example.myapplication.Fragment;
 
-import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageSwitcher;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 
-import com.example.myapplication.Object.ListButtonData;
-import com.example.myapplication.Object.ObjectList_Button_Adapter;
+import com.example.myapplication.Object.FolderData;
+import com.example.myapplication.Object.FolderAdapter;
+import com.example.myapplication.Object.ObjectAdapter;
+import com.example.myapplication.Object.ObjectData;
 import com.example.myapplication.Object.Object_List;
 import com.example.myapplication.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static android.app.Activity.RESULT_OK;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,14 +50,18 @@ public class ObjectFragment extends Fragment {
     private Context context;
     private boolean isOpened=false;
 
-    private RecyclerView mRecyclerView;
-    private ObjectList_Button_Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerView fRecyclerView, oRecyclerView;
+    private FolderAdapter fAdapter;
+    private ObjectAdapter oAdapter;
+    private RecyclerView.LayoutManager fLayoutManager, oLayoutManager;
 
 
     List<String> listName = new ArrayList() ;
+    List<String> objectName = new ArrayList();
     List<Integer> listImage = Arrays.asList(R.drawable.add_folder);
+    List<Integer> objectImage = Arrays.asList(R.drawable.add_photo);
     private int folderNum = 0;
+    private int objectNum = 0;
 
 
     public ObjectFragment() {
@@ -145,12 +133,12 @@ public class ObjectFragment extends Fragment {
                 }
             }
         });
-        addImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getImageFromAlbum();
-            }
-        });
+//        addImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                getImageFromAlbum();
+//            }
+//        });
 
         return view;
     }
@@ -159,25 +147,39 @@ public class ObjectFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.object_recyclerview);
-            mRecyclerView.setHasFixedSize(true);
+        fRecyclerView = (RecyclerView) view.findViewById(R.id.object_recyclerview_folder);
+        oRecyclerView = (RecyclerView) view.findViewById(R.id.object_recyclerview_object);
+           fRecyclerView.setHasFixedSize(true);
+           oRecyclerView.setHasFixedSize(true);
 
-            mAdapter = new ObjectList_Button_Adapter();
+            fAdapter = new FolderAdapter();
+            oAdapter = new ObjectAdapter();
 
-            mLayoutManager = new GridLayoutManager(getActivity(), 2);
+            fLayoutManager = new GridLayoutManager(getActivity(), 2);
+            oLayoutManager = new GridLayoutManager(getActivity(), 4);
 
-            mRecyclerView.setLayoutManager(mLayoutManager);
+            fRecyclerView.setLayoutManager(fLayoutManager);
+            oRecyclerView.setLayoutManager(oLayoutManager);
 
         FloatingActionButton addObjectList = (FloatingActionButton) view.findViewById(R.id.addObjectList);
+        final FloatingActionButton addImage = (FloatingActionButton) view.findViewById(R.id.addImage);
+
         addObjectList.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
 //                mRecyclerView.setAdapter(mAdapter);
                 addFolder(folderNum);
                 folderNum++;
-                mRecyclerView.setAdapter(mAdapter);
+                fRecyclerView.setAdapter(fAdapter);
 
             }
          });
+        addImage.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                addObject(objectNum);
+                objectNum++;
+                oRecyclerView.setAdapter(oAdapter);
+            }
+        });
 
     }
 
@@ -212,12 +214,25 @@ public class ObjectFragment extends Fragment {
 
         listName.add("folder "+Integer.toString(i+1));
 
-        ListButtonData data = new ListButtonData();
+        FolderData data = new FolderData();
 
         data.setlistName(listName.get(i));
         data.setlistImage(listImage.get(0));
 
-        mAdapter.addData(data);
+        fAdapter.addData(data);
+
+    }
+
+    public void addObject(int i){
+
+        objectName.add("image "+Integer.toString(i+1));
+
+        ObjectData data = new ObjectData();
+
+        data.setobjectName(objectName.get(i));
+        data.setobjectImage(objectImage.get(0));
+
+        oAdapter.addData(data);
 
     }
 

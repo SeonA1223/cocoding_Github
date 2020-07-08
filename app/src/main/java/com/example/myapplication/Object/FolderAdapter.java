@@ -1,62 +1,55 @@
 package com.example.myapplication.Object;
 
-import android.app.Activity;
-import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.zip.Inflater;
 
 
-public class ObjectList_Button_Adapter extends RecyclerView.Adapter<ObjectList_Button_Adapter.ViewHolder> {
+public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder> {
 
-    private ArrayList<ListButtonData> listButtonData = new ArrayList<>();
-    private ArrayList<ListButtonData> listObjectData = new ArrayList<>();
-    private ListButtonData data = new ListButtonData();
+    private ArrayList<FolderData> folderData = new ArrayList<>();
+    private ArrayList<FolderData> objectData = new ArrayList<>();
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.object_cardview, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.object_folder_set, parent, false);
 
         return new ViewHolder(v);
     }
 
     // 생성자에서 데이터 리스트 객체를 전달받음.
-    public ObjectList_Button_Adapter(){
+    public FolderAdapter(){
 
     }
-    public ObjectList_Button_Adapter(ListButtonData input) {
+    public FolderAdapter(FolderData input) {
 //        listButtonData.add(input);
 
     }
 
-    public void addData(ListButtonData input){
-        listButtonData.add(input);
+    public void addData(FolderData input){
+        folderData.add(input);
     }
 
 
     // onBindViewHolder() - position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시.
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.onBind(listButtonData.get(position));
+        holder.onBind(folderData.get(position));
         }
 
 
     // getItemCount() - 전체 데이터 갯수 리턴.
     @Override
     public int getItemCount() {
-        return listButtonData.size() ;
+        return folderData.size() ;
     }
 
 
@@ -70,7 +63,7 @@ public class ObjectList_Button_Adapter extends RecyclerView.Adapter<ObjectList_B
             listImage = (ImageView) view.findViewById(R.id.listImage);
             listName = (TextView) view.findViewById(R.id.listName);
         }
-        void onBind(ListButtonData data) {
+        void onBind(FolderData data) {
             listImage.setImageResource(data.getlistImage());
             listName.setText(data.getlistName());
         }

@@ -3,7 +3,7 @@ package com.example.myapplication.Object;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class ListButtonData {
+public class FolderData {
 
     private int listImage;
     private String listName;

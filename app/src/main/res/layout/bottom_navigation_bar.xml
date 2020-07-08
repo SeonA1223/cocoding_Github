@@ -45,12 +45,12 @@
             android:layout_marginBottom="4dp"
             android:background="@drawable/ic_teamatetwo_uppertab_icon" />
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:layout_gravity="end"
-            android:background="@drawable/ic_teamateplus_uppertab_icon" />
+<!--        <Button-->
+<!--            android:id="@+id/button4"-->
+<!--            android:layout_width="42dp"-->
+<!--            android:layout_height="42dp"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:background="@drawable/ic_teamateplus_uppertab_icon" />-->
 
     </androidx.appcompat.widget.Toolbar>
 

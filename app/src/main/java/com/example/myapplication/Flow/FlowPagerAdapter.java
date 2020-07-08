@@ -16,12 +16,12 @@ public class FlowPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+        MakeFlowFragment makeFlowFragment = new MakeFlowFragment();
+        SignalFragment signalFragment = new SignalFragment();
         switch (position) {
             case 0:
-                MakeFlowFragment makeFlowFragment = new MakeFlowFragment();
                 return makeFlowFragment;
             case 1:
-                SignalFragment signalFragment = new SignalFragment();
                 return signalFragment;
             default:
                 return null;

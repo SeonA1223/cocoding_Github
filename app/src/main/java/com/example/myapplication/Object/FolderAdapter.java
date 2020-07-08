@@ -1,5 +1,7 @@
 package com.example.myapplication.Object;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +18,6 @@ import java.util.ArrayList;
 public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder> {
 
     private ArrayList<FolderData> folderData = new ArrayList<>();
-    private ArrayList<FolderData> objectData = new ArrayList<>();
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -58,10 +59,25 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView listImage;
         private TextView listName;
+
         public ViewHolder(View view) {
             super(view);
             listImage = (ImageView) view.findViewById(R.id.listImage);
             listName = (TextView) view.findViewById(R.id.listName);
+
+
+            listImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition() ;
+                    if (pos != RecyclerView.NO_POSITION) {
+                        // TODO : use pos.
+                        Context context = v.getContext();
+                        Intent intent = new Intent(v.getContext(),Object_List.class);
+                        context.startActivity(intent);
+                    }
+                }
+            });
         }
         void onBind(FolderData data) {
             listImage.setImageResource(data.getlistImage());

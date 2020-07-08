@@ -1,5 +1,7 @@
 package com.example.myapplication.Object;
 
+import android.net.Uri;
+
 public class ObjectData {
 
     private int objectImage;

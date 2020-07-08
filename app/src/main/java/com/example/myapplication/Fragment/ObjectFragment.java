@@ -104,20 +104,10 @@ public class ObjectFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_object, container, false);
 
-        Button objectList1 = (Button) view.findViewById(R.id.objectList1);
-
         FloatingActionButton fabMain = (FloatingActionButton) view.findViewById(R.id.fabMain);
         final FloatingActionButton addImage = (FloatingActionButton) view.findViewById(R.id.addImage);
         final FloatingActionButton addObjectList = (FloatingActionButton) view.findViewById(R.id.addObjectList);
 
-
-        objectList1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Object_List.class);
-                startActivity(intent);
-            }
-        });
         fabMain.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 if(isOpened==false)
@@ -222,6 +212,7 @@ public class ObjectFragment extends Fragment {
         fAdapter.addData(data);
 
     }
+
 
     public void addObject(int i){
 

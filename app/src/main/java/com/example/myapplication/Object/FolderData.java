@@ -7,6 +7,7 @@ public class FolderData {
 
     private int listImage;
     private String listName;
+    private int listId;
 
     public String getlistName() {
         return listName;
@@ -23,5 +24,9 @@ public class FolderData {
     public void setlistImage(int listImage) {
         this.listImage = listImage;
     }
+
+    public int getlistId(){ return listId;}
+
+    public void setlistId(int listId){this.listId = listId;}
 
 }

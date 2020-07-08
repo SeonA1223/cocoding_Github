@@ -1,16 +1,12 @@
 package com.example.myapplication.Object;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ListButtonData {
 
     private int listImage;
     private String listName;
-
-    public void add(){
-        this.listImage=getlistImage();
-        this.listName=getlistName();
-    }
 
     public String getlistName() {
         return listName;

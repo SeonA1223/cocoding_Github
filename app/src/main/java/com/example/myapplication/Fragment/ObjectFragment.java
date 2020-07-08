@@ -11,6 +11,7 @@ import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -67,7 +68,7 @@ public class ObjectFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private ObjectList_Button_Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    ArrayList<ListButtonData> mMydata = new ArrayList<>();
+    private int numData;
 
     public ObjectFragment() {
         // Required empty public constructor
@@ -99,12 +100,6 @@ public class ObjectFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-//
-//
-//        init();
-//
-//        getData();
-
     }
 
     @Override
@@ -120,20 +115,23 @@ public class ObjectFragment extends Fragment {
         FloatingActionButton fabMain = (FloatingActionButton) view.findViewById(R.id.fabMain);
         final FloatingActionButton addImage = (FloatingActionButton) view.findViewById(R.id.addImage);
         final FloatingActionButton addObjectList = (FloatingActionButton) view.findViewById(R.id.addObjectList);
-        if(view instanceof RecyclerView) {
-
-            mRecyclerView = (RecyclerView) view.findViewById(R.id.object_recyclerview);
-            mRecyclerView.setHasFixedSize(true);
-
-            getData();
-
-            mAdapter = new ObjectList_Button_Adapter(mMydata, getActivity());
-
-            mLayoutManager = new LinearLayoutManager(getActivity());
-            ((LinearLayoutManager) mLayoutManager).setOrientation(LinearLayoutManager.VERTICAL);
-            mRecyclerView.setLayoutManager(mLayoutManager);
-
-        }
+//        if(view instanceof RecyclerView) {
+//
+//            mRecyclerView = (RecyclerView) view.findViewById(R.id.object_recyclerview);
+//            mRecyclerView.setHasFixedSize(true);
+//
+////            mAdapter = new ObjectList_Button_Adapter(mMydata);
+//
+//            mLayoutManager = new LinearLayoutManager(getActivity());
+//            ((LinearLayoutManager) mLayoutManager).setOrientation(LinearLayoutManager.VERTICAL);
+//
+//            mRecyclerView.setLayoutManager(mLayoutManager);
+//
+//            setData();
+//
+//            mRecyclerView.setAdapter(mAdapter);
+//
+//        }
 
         objectList1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,15 +161,40 @@ public class ObjectFragment extends Fragment {
                 getImageFromAlbum();
             }
         });
-        addObjectList.setOnClickListener(new View.OnClickListener(){
+//        addObjectList.setOnClickListener(new View.OnClickListener(){
+//            public void onClick(View v) {
+//
+//            }
+//         });
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setData();
+
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.object_recyclerview);
+            mRecyclerView.setHasFixedSize(true);
+
+//            mAdapter = new ObjectList_Button_Adapter(mMydata);
+
+            mLayoutManager = new LinearLayoutManager(getActivity());
+            ((LinearLayoutManager) mLayoutManager).setOrientation(LinearLayoutManager.VERTICAL);
+
+            mRecyclerView.setLayoutManager(mLayoutManager);
+
+        final FloatingActionButton addObjectList = (FloatingActionButton) view.findViewById(R.id.addObjectList);
+                addObjectList.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
 
                 mRecyclerView.setAdapter(mAdapter);
 
+
             }
          });
 
-        return view;
     }
 
 
@@ -203,20 +226,24 @@ public class ObjectFragment extends Fragment {
     }
 
 
-    private void getData(){
-        List<String> listName = Arrays.asList("first list","second list","third list");
+    private void setData(){
+        List<String> listName = Arrays.asList("first list","second list","third list","fourth list");
         List<Integer> listImage = Arrays.asList(
                 R.drawable.add_folder
         );
-        for (int i = 0; i < listName.size(); i++) {
-            // 각 List의 값들을 data 객체에 set 해줍니다.
-            ListButtonData data = new ListButtonData();
-            data.setlistImage(listImage.get(i));
-            data.setlistName(listName.get(0));
 
-            // 각 값이 들어간 data를 adapter에 추가합니다.
-            mAdapter.addItem(data);
+        mAdapter = new ObjectList_Button_Adapter();
+        numData = listName.size();
+
+        for(int i=0; i < numData; i++){
+            ListButtonData data = new ListButtonData();
+
+            data.setlistName(listName.get(i));
+            data.setlistImage(listImage.get(0));
+
+            mAdapter.addData(data);
         }
+
     }
 
 }

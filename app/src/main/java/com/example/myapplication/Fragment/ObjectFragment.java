@@ -14,6 +14,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -68,7 +69,12 @@ public class ObjectFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private ObjectList_Button_Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private int numData;
+
+
+    List<String> listName = new ArrayList() ;
+    List<Integer> listImage = Arrays.asList(R.drawable.add_folder);
+    private int folderNum = 0;
+
 
     public ObjectFragment() {
         // Required empty public constructor
@@ -115,23 +121,7 @@ public class ObjectFragment extends Fragment {
         FloatingActionButton fabMain = (FloatingActionButton) view.findViewById(R.id.fabMain);
         final FloatingActionButton addImage = (FloatingActionButton) view.findViewById(R.id.addImage);
         final FloatingActionButton addObjectList = (FloatingActionButton) view.findViewById(R.id.addObjectList);
-//        if(view instanceof RecyclerView) {
-//
-//            mRecyclerView = (RecyclerView) view.findViewById(R.id.object_recyclerview);
-//            mRecyclerView.setHasFixedSize(true);
-//
-////            mAdapter = new ObjectList_Button_Adapter(mMydata);
-//
-//            mLayoutManager = new LinearLayoutManager(getActivity());
-//            ((LinearLayoutManager) mLayoutManager).setOrientation(LinearLayoutManager.VERTICAL);
-//
-//            mRecyclerView.setLayoutManager(mLayoutManager);
-//
-//            setData();
-//
-//            mRecyclerView.setAdapter(mAdapter);
-//
-//        }
+
 
         objectList1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,11 +151,6 @@ public class ObjectFragment extends Fragment {
                 getImageFromAlbum();
             }
         });
-//        addObjectList.setOnClickListener(new View.OnClickListener(){
-//            public void onClick(View v) {
-//
-//            }
-//         });
 
         return view;
     }
@@ -173,30 +158,28 @@ public class ObjectFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setData();
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.object_recyclerview);
             mRecyclerView.setHasFixedSize(true);
 
-//            mAdapter = new ObjectList_Button_Adapter(mMydata);
+            mAdapter = new ObjectList_Button_Adapter();
 
-            mLayoutManager = new LinearLayoutManager(getActivity());
-            ((LinearLayoutManager) mLayoutManager).setOrientation(LinearLayoutManager.VERTICAL);
+            mLayoutManager = new GridLayoutManager(getActivity(), 2);
 
             mRecyclerView.setLayoutManager(mLayoutManager);
 
-        final FloatingActionButton addObjectList = (FloatingActionButton) view.findViewById(R.id.addObjectList);
-                addObjectList.setOnClickListener(new View.OnClickListener(){
+        FloatingActionButton addObjectList = (FloatingActionButton) view.findViewById(R.id.addObjectList);
+        addObjectList.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-
+//                mRecyclerView.setAdapter(mAdapter);
+                addFolder(folderNum);
+                folderNum++;
                 mRecyclerView.setAdapter(mAdapter);
-
 
             }
          });
 
     }
-
 
     private void getImageFromAlbum() {
             //Create an Intent with action as ACTION_PICK
@@ -225,24 +208,16 @@ public class ObjectFragment extends Fragment {
                 }
     }
 
+    public void addFolder(int i){
 
-    private void setData(){
-        List<String> listName = Arrays.asList("first list","second list","third list","fourth list");
-        List<Integer> listImage = Arrays.asList(
-                R.drawable.add_folder
-        );
+        listName.add("folder "+Integer.toString(i+1));
 
-        mAdapter = new ObjectList_Button_Adapter();
-        numData = listName.size();
+        ListButtonData data = new ListButtonData();
 
-        for(int i=0; i < numData; i++){
-            ListButtonData data = new ListButtonData();
+        data.setlistName(listName.get(i));
+        data.setlistImage(listImage.get(0));
 
-            data.setlistName(listName.get(i));
-            data.setlistImage(listImage.get(0));
-
-            mAdapter.addData(data);
-        }
+        mAdapter.addData(data);
 
     }
 

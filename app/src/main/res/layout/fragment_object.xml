@@ -3,12 +3,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.ObjectFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--        object folder list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/object_recyclerview_folder"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="314dp"
+        app:layoutManager = "androidx.recyclerview.widget.GridLayoutManager"/>
+<!--        app:spanCount="2"  />-->
+
+
+    <!--        object list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/object_recyclerview_object"
+        android:layout_width="match_parent"
+        android:layout_height="314dp"
+        app:layoutManager = "androidx.recyclerview.widget.GridLayoutManager"/>
+<!--        app:spanCount="4"  />-->
+
+
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="314dp"-->
+<!--        android:orientation="vertical"-->
+<!--        android:background="#bdbdbd">-->
+
+<!--    <TableLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginRight="16dp">-->
+
+
+<!--        <TableRow-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            >-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/object1"-->
+<!--                android:layout_width="80dp"-->
+<!--                android:layout_height="80dp"-->
+<!--                android:layout_marginRight="2dp"-->
+<!--                android:layout_marginBottom="2dp"-->
+<!--                app:srcCompat="@drawable/ic_store_main_icon"/>-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/object2"-->
+<!--                android:layout_width="80dp"-->
+<!--                android:layout_height="80dp"-->
+<!--                android:layout_marginRight="2dp"-->
+<!--                android:layout_marginBottom="2dp"/>-->
+
+<!--        </TableRow>-->
+
+<!--    </TableLayout>-->
+
+<!--    </LinearLayout>-->
+
+
+</LinearLayout>
+
+    <!-- 제일 위에 올라가는 floating action button
+    objectlist를 추가할 때 사용함-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addObjectList"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|right"
+        android:src="@drawable/add_folder"/>
+
+    <!--위에서 2번째에 올라가는 FAB
+    사용자 객체를 추가할 때 사용함-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|right"
+        android:src="@drawable/add_photo"/>
+
+    <!-- main FAB
+    서랍 문?
+    열었다 닫았다 할 수 있음
+    다른 FAB들을 속에 넣었다가 꺼냈다가 함-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabMain"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|right"/>
 
 </FrameLayout>

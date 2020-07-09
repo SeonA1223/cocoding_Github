@@ -2,7 +2,6 @@ package com.example.myapplication.Code;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.Recyclerview.RecyclerviewItem;
-import com.example.myapplication.Recyclerview.Recyclerview_ItemAdapter;
+import com.example.myapplication.Flow.Recyclerview_Flow_ItemAdapter;
 
 import java.util.ArrayList;
 
@@ -21,7 +20,7 @@ public class CodeRecyclerview extends Fragment {
 
     //viewpager 내에 보여지는 recyclerview
     RecyclerView recyclerView;
-    Recyclerview_ItemAdapter recyclerviewItemAdapter;
+    Recyclerview_Code_ItemAdapter recyclerviewItemAdapter;
     CodeBlockData codeBlockData0, codeBlockData1, codeBlockData2, codeBlockData3, codeBlockData4, codeBlockData5, codeBlockData6, codeBlockData7;
     Context context;
     int position;
@@ -61,7 +60,7 @@ public class CodeRecyclerview extends Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 4);
         arrayList = new ArrayList<RecyclerviewItem>();
         arrayList.addAll(codeBlockData0.getCodeBlocks());
-        recyclerviewItemAdapter = new Recyclerview_ItemAdapter(context, arrayList);
+        recyclerviewItemAdapter = new Recyclerview_Code_ItemAdapter(context, arrayList);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(recyclerviewItemAdapter);
 

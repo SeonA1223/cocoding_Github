@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_flow_make_flow"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".Flow.MakeFlowFragment">
 
@@ -10,35 +11,47 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/flow_figure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="순서도도형"/>
+            android:text="순서도도형" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="button2"/>
+            android:text="button2" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="button3"/>
+            android:text="button3" />
 
     </LinearLayout>
 
+    <ScrollView
+        android:id="@+id/flow_fragment_flow_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+
         <LinearLayout
             android:id="@+id/second_fragment_flow_make_flow"
-            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"/>
+            android:layout_height="250dp"
 
+            android:orientation="vertical">
 
+        </LinearLayout>
+    </ScrollView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="480dp"
+        android:orientation="vertical"
+        android:id="@+id/flow_recyclerview_layout">
 
-</FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

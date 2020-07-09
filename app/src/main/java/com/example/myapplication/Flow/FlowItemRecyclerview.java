@@ -1,33 +1,19 @@
 package com.example.myapplication.Flow;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
-import android.view.GestureDetector;
-import android.view.GestureDetector.OnGestureListener;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 
 import com.example.myapplication.R;
-import com.example.myapplication.Recyclerview.RecyclerviewItem;
-import com.example.myapplication.Recyclerview.Recyclerview_ItemAdapter;
-
-import java.util.ArrayList;
 
 public class FlowItemRecyclerview extends Fragment {
 
@@ -55,7 +41,7 @@ public class FlowItemRecyclerview extends Fragment {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.flow_recyclerview);
 
         flowItemData = new FlowItemData();
-        Recyclerview_ItemAdapter flowItemAdapter= new Recyclerview_ItemAdapter(getActivity(), flowItemData.getFlowItems());
+        Recyclerview_Flow_ItemAdapter flowItemAdapter= new Recyclerview_Flow_ItemAdapter(getActivity(), flowItemData.getFlowItems());
 
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3) {
                                           @Override
@@ -70,7 +56,7 @@ public class FlowItemRecyclerview extends Fragment {
         * 참조 사이트 https://recipes4dev.tistory.com/168
         * */
 
-        flowItemAdapter.setOnItemClickListener(new Recyclerview_ItemAdapter.OnItemClickListener() {
+        flowItemAdapter.setOnItemClickListener(new Recyclerview_Flow_ItemAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 Bundle bundle = new Bundle();

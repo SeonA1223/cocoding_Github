@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.myapplication.R;
+import com.example.myapplication.Recyclerview.RecyclerviewItem;
 
 import java.util.ArrayList;
 
@@ -30,9 +32,9 @@ public class MakeFlowFragment extends Fragment {
     Button flow_shape;
     LinearLayout linearLayout;
     Fragment flowItemRecyclerview;
-    ArrayList arrayList;
-    int image;
-
+    FlowItemData flowItemData;
+    int imageNumber;
+    FragmentTransaction transaction;
 
     int mNumber = 0;
 
@@ -47,6 +49,7 @@ public class MakeFlowFragment extends Fragment {
 
         super.onCreate(savedInstanceState);
 
+
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -60,77 +63,97 @@ public class MakeFlowFragment extends Fragment {
         linearLayout = (LinearLayout) view.findViewById(R.id.second_fragment_flow_make_flow);
 
         flowItemRecyclerview = new FlowItemRecyclerview();
+        flowItemData = new FlowItemData();
 
 
         flow_shape.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                transaction = getChildFragmentManager().beginTransaction();
 
                 //transaction.add(R.id.fragment_flow_make_flow, flowItemRecyclerview, "recycle")
 
                 if (mNumber % 2 == 0 || flowItemRecyclerview == null) {
                     Log.e("a", "come?");
-                    transaction.add(R.id.fragment_flow_make_flow, flowItemRecyclerview).addToBackStack(null).commitAllowingStateLoss();
+                    transaction.add(R.id.flow_recyclerview_layout, flowItemRecyclerview).addToBackStack(null).commitAllowingStateLoss();
+
                 } else {
                     Log.e("b", "come?");
                     transaction.remove(flowItemRecyclerview).commitAllowingStateLoss();
+                    //  transaction.replace(R.id.fragment)
+
+
                 }
                 mNumber++;
             }
 
         });
 
-        linearLayout.setOnClickListener(new View.OnClickListener() {
+//        linearLayout.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                Log.e("problem", "please I want to know");
+//                FragmentManager fragmentManager = getChildFragmentManager();
+//                if (flowItemRecyclerview.isVisible()) {
+//                    transaction.remove(flowItemRecyclerview).commitAllowingStateLoss();
+//                    mNumber++;
+//                }
+//
+//            }
+//        });
 
-            @Override
-            public void onClick(View v) {
-                Log.e("problem", "please I want to know");
-                FragmentManager fragmentManager = getChildFragmentManager();
-                if (flowItemRecyclerview != null) {
-                    fragmentManager.popBackStack();
-                    mNumber++;
-                }
 
-            }
-        });
-
-
-        linearLayout.setOnTouchListener(new View.OnTouchListener() {
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return false;
-            }
-        });
-
+//        linearLayout.setOnTouchListener(new View.OnTouchListener() {
+//
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                return false;
+//            }
+//        });
+//
         return view;
 
     }
 
     @Override
-    public void onResume() {
-
-        super.onResume();
-
-
-        getChildFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                image = result.getInt("itemPosition");
-                Log.e("Fragment data send", "[" + image + "]");
-            }
-        });
-
-        ImageView imageView = makeImageview(image, getActivity());
-        imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        linearLayout.addView(imageView);
-
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if (flowItemRecyclerview != null) {
+            getChildFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
+                @Override
+                public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                    imageNumber = result.getInt("itemPosition");
+                    Log.e("Fragment data send", "[" + imageNumber + "]");
+                    ImageView imageView = makeImageview(getActivity());
+                    imageView.setImageResource(flowItemData.getItem(imageNumber).getImage());
+                    imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    linearLayout.addView(imageView);
+                }
+            });
+        }
     }
 
-    private ImageView makeImageview(int image, Context context) {
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        if (flowItemRecyclerview != null) {
+//            getChildFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
+//                @Override
+//                public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+//                    imageNumber = result.getInt("itemPosition");
+//                    Log.e("Fragment data send", "[" + imageNumber + "]");
+//                    ImageView imageView = makeImageview(getActivity());
+//                    imageView.setImageResource(flowItemData.getItem(imageNumber).getImage());
+//                    imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+//                    linearLayout.addView(imageView);
+//                }
+//            });
+//        }
+//    }
+
+    private ImageView makeImageview(Context context) {
         ImageView imageView = new ImageView(context);
-        imageView.setImageResource(image);
 
         return imageView;
     }

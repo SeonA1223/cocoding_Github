@@ -1,8 +1,6 @@
-package com.example.myapplication.Recyclerview;
+package com.example.myapplication.Flow;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,15 +8,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.Flow.MakeFlowFragment;
 import com.example.myapplication.R;
+import com.example.myapplication.Recyclerview.RecyclerviewItem;
 
 import java.util.ArrayList;
 
-public class Recyclerview_ItemAdapter extends RecyclerView.Adapter<Recyclerview_ItemAdapter.ViewHolder> {
+public class Recyclerview_Flow_ItemAdapter extends RecyclerView.Adapter<Recyclerview_Flow_ItemAdapter.ViewHolder> {
     private Context context;
     private ArrayList<RecyclerviewItem> ArrayList;
 
@@ -32,7 +29,7 @@ public class Recyclerview_ItemAdapter extends RecyclerView.Adapter<Recyclerview_
         mOnItemClickListener = listener;
     }
 
-    public Recyclerview_ItemAdapter(Context context, ArrayList<RecyclerviewItem> flowItemArrayList) {
+    public Recyclerview_Flow_ItemAdapter(Context context, ArrayList<RecyclerviewItem> flowItemArrayList) {
         this.context = context;
         this.ArrayList = flowItemArrayList;
     }
@@ -66,14 +63,14 @@ public class Recyclerview_ItemAdapter extends RecyclerView.Adapter<Recyclerview_
 
     @NonNull
     @Override
-    public Recyclerview_ItemAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public Recyclerview_Flow_ItemAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(context).inflate(R.layout.flow_item, viewGroup, false);
-        return new Recyclerview_ItemAdapter.ViewHolder(view);
+        return new Recyclerview_Flow_ItemAdapter.ViewHolder(view);
     }
 
 
     @Override
-    public void onBindViewHolder(@NonNull Recyclerview_ItemAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull Recyclerview_Flow_ItemAdapter.ViewHolder viewHolder, int i) {
         final RecyclerviewItem flowItem = ArrayList.get(i);
         viewHolder.imageView.setImageResource(flowItem.getImage());
         Log.e("Click 전" , "[" + flowItem.getImage() + "]");

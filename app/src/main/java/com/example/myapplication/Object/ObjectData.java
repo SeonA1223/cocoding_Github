@@ -4,7 +4,7 @@ import android.net.Uri;
 
 public class ObjectData {
 
-    private int objectImage;
+    private Uri userObjectImage;
     private String objectName;
 
     public String getobjectName() {
@@ -15,12 +15,7 @@ public class ObjectData {
         this.objectName = objectName;
     }
 
-    public int getobjectImage() {
-        return objectImage;
-    }
+    public Uri getuserObjectImage(){return userObjectImage;}
 
-    public void setobjectImage(int objectImage) {
-        this.objectImage = objectImage;
-    }
-
+    public void setuserObjectImage(Uri uri) {this.userObjectImage = uri;}
 }

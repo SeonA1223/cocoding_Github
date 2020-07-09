@@ -1,5 +1,8 @@
 package com.example.myapplication.Object;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +28,8 @@ public class ObjectAdapter extends RecyclerView.Adapter<ObjectAdapter.ViewHolder
 
     // 생성자에서 데이터 리스트 객체를 전달받음.
     public ObjectAdapter(){
-
     }
+
     public ObjectAdapter(ObjectData input) {
 //        listButtonData.add(input);
 
@@ -54,15 +57,27 @@ public class ObjectAdapter extends RecyclerView.Adapter<ObjectAdapter.ViewHolder
 
     // 아이템 뷰를 저장하는 뷰홀더 클래스.
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private ImageView objectImage;
+//        private ImageView objectImage;
         private TextView objectName;
+        private ImageView userObjectImage;
+
         public ViewHolder(View view) {
             super(view);
-            objectImage = (ImageView) view.findViewById(R.id.objectImage);
+            userObjectImage = (ImageView) view.findViewById(R.id.objectImage);
             objectName = (TextView) view.findViewById(R.id.objectName);
+//            userObjectImage.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    int pos = getAdapterPosition() ;
+//                    if (pos != RecyclerView.NO_POSITION) {
+//                        // TODO : 객체 클릭시 폴더에 넣는거 여기에 작업,,
+//
+//                    }
+//                }
+//            });
         }
         void onBind(ObjectData data) {
-            objectImage.setImageResource(data.getobjectImage());
+            userObjectImage.setImageURI(data.getuserObjectImage());
             objectName.setText(data.getobjectName());
         }
     }

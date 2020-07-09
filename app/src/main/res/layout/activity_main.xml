@@ -70,8 +70,8 @@
                 android:layout_marginRight="4dp"
                 android:layout_marginBottom="4dp"
                 android:fontFamily="@font/lottemart"
-                android:textColor="#ffffff"
-                android:text="project_123" />
+                android:text="project_123"
+                android:textColor="#ffffff" />
 
             <Button
                 android:id="@+id/button2"

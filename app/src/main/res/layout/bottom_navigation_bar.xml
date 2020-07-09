@@ -68,6 +68,7 @@
         android:layout_gravity="bottom"
         app:menu="@menu/navigation_bottom_menu"
         app:labelVisibilityMode="unlabeled"
+        android:background="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

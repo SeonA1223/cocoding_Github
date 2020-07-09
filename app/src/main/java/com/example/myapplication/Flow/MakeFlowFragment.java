@@ -31,11 +31,10 @@ public class MakeFlowFragment extends Fragment {
     //흐름도 만들기 페이지
     Button flow_shape;
     LinearLayout linearLayout;
-    Fragment flowItemRecyclerview;
+
     FlowItemData flowItemData;
     int imageNumber;
-    FragmentTransaction transaction;
-
+    Fragment flowItemRecyclerview;
     int mNumber = 0;
 
 
@@ -49,7 +48,6 @@ public class MakeFlowFragment extends Fragment {
 
         super.onCreate(savedInstanceState);
 
-
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -62,29 +60,30 @@ public class MakeFlowFragment extends Fragment {
         flow_shape = (Button) view.findViewById(R.id.flow_figure);
         linearLayout = (LinearLayout) view.findViewById(R.id.second_fragment_flow_make_flow);
 
+
+
         flowItemRecyclerview = new FlowItemRecyclerview();
         flowItemData = new FlowItemData();
-
-
         flow_shape.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transaction = getChildFragmentManager().beginTransaction();
+                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
 
                 //transaction.add(R.id.fragment_flow_make_flow, flowItemRecyclerview, "recycle")
 
                 if (mNumber % 2 == 0 || flowItemRecyclerview == null) {
                     Log.e("a", "come?");
-                    transaction.add(R.id.flow_recyclerview_layout, flowItemRecyclerview).addToBackStack(null).commitAllowingStateLoss();
+                    transaction.replace(R.id.second_fragment_flow_make_flow, flowItemRecyclerview);
 
                 } else {
                     Log.e("b", "come?");
-                    transaction.remove(flowItemRecyclerview).commitAllowingStateLoss();
+                    transaction.remove(flowItemRecyclerview);
                     //  transaction.replace(R.id.fragment)
 
 
                 }
                 mNumber++;
+                transaction.commit();
             }
 
         });

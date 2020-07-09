@@ -28,6 +28,9 @@ public class FlowItemRecyclerview extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(flowItemData ==null){
+            flowItemData = new FlowItemData();
+        }
 
     }
 
@@ -40,7 +43,6 @@ public class FlowItemRecyclerview extends Fragment {
         context = container.getContext();
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.flow_recyclerview);
 
-        flowItemData = new FlowItemData();
         Recyclerview_Flow_ItemAdapter flowItemAdapter= new Recyclerview_Flow_ItemAdapter(getActivity(), flowItemData.getFlowItems());
 
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3) {

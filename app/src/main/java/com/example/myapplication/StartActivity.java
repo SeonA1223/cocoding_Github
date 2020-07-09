@@ -5,6 +5,7 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -15,16 +16,16 @@ import com.example.myapplication.Fragment.IdeaFragment;
 import com.example.myapplication.Fragment.ObjectFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class StartActivity extends AppCompatActivity {
+public class StartActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
 
     private FragmentManager fragmentManager = getSupportFragmentManager();
-    private CodeFragment codeFragment = new CodeFragment();
-    private FlowFragment flowFragment = new FlowFragment();
-    private com.example.myapplication.Fragment.IdeaFragment IdeaFragment = new IdeaFragment();
-    private ObjectFragment objectFragment = new ObjectFragment();
+    private Fragment codeFragment = new CodeFragment();
+    private Fragment flowFragment = new FlowFragment();
+    private Fragment IdeaFragment = new IdeaFragment();
+    private Fragment objectFragment = new ObjectFragment();
   //  private FlowItemRecyclerview flowItemRecyclerview = new FlowItemRecyclerview();
 
-    BottomNavigationView bottomNavigationView;
+    protected BottomNavigationView bottomNavigationView;
 
    // FrameLayout frameLayout = findViewById(R.id.framelayout);
 
@@ -40,6 +41,11 @@ public class StartActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return false;
+    }
+
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -49,6 +55,7 @@ public class StartActivity extends AppCompatActivity {
             {
                 case R.id.bottom_navigation_item_idea:
                     transaction.replace(R.id.frameLayout, IdeaFragment).commitAllowingStateLoss();
+//                    transaction.hide(flowFragment);
                     break;
                 case R.id.bottom_navigation_item_flow:
                     transaction.replace(R.id.frameLayout, flowFragment).commitAllowingStateLoss();

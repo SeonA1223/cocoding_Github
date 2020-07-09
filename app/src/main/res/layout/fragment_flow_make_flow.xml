@@ -34,24 +34,17 @@
     <ScrollView
         android:id="@+id/flow_fragment_flow_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="250dp">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/second_fragment_flow_make_flow"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
         </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="480dp"
-        android:orientation="vertical"
-        android:id="@+id/flow_recyclerview_layout">
 
-    </LinearLayout>
 
 </LinearLayout>

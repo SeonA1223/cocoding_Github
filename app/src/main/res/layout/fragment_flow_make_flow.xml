@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_flow_make_flow"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Flow.MakeFlowFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -34,17 +34,25 @@
     <ScrollView
         android:id="@+id/flow_fragment_flow_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="300dp">
 
         <LinearLayout
             android:id="@+id/second_fragment_flow_make_flow"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:orientation="vertical">
 
         </LinearLayout>
     </ScrollView>
 
+    <LinearLayout
+        android:id="@+id/flow_recyclerview_location"
+        android:layout_height="310dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+    </LinearLayout>
 
 
 </LinearLayout>
+

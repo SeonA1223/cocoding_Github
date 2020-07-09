@@ -73,7 +73,7 @@ public class MakeFlowFragment extends Fragment {
 
                 if (mNumber % 2 == 0 || flowItemRecyclerview == null) {
                     Log.e("a", "come?");
-                    transaction.replace(R.id.second_fragment_flow_make_flow, flowItemRecyclerview);
+                    transaction.replace(R.id.flow_recyclerview_location, flowItemRecyclerview);
 
                 } else {
                     Log.e("b", "come?");

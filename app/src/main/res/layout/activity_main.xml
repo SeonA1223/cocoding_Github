@@ -9,38 +9,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="360dp"
-        android:layout_height="56dp"
-        android:background="@color/transparent"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme">
-
-
-        <ImageButton
-            android:id="@+id/imageButton1"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_gravity="end"
-            android:background="@color/transparent"
-            app:srcCompat="@drawable/ic_store_main_icon" />
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_gravity="end"
-            android:background="@color/transparent"
-            app:srcCompat="@drawable/ic_mypage_main_icon" />
-
-
-
-    </androidx.appcompat.widget.Toolbar>
 
     <ImageView
         android:id="@+id/imageView"
